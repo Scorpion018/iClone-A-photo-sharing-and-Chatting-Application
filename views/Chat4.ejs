@@ -1,0 +1,88 @@
+<!DOCTYPE>
+<html>
+    <head>
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>
+            ranjith_gowda Chat Box
+        </title>
+        <link rel="stylesheet" type="text/css" href="Chat.css">
+    </head>
+    
+    <body class="allelements">
+ <div class = "wrapper">
+               
+         <div class = "flex-wrapper">
+                     <div class = "flex-wrapper-items">
+                         <a href="http://localhost:8080/message4">
+                         <i class="fa fa-arrow-left"></i>
+                      </a>
+                     </div>
+
+                     <!-- <div class = "flex-wrapper-items">
+
+                           <a href="http://localhost:8080/Account1">
+                              <span style="color: black" class="glyphicon glyphicon-Search"></span>
+                            </a> -->
+                            <!-- <input style="width: 50%; " type="search" placeholder=" " name="search" />
+                            <input type="submit" class="glyphicon glyphicon-Search" value="Search" >
+
+              </div> --> 
+              <div class = "flex-wrapper-items">Chat-Box</div>
+
+                     <div class = "flex-wrapper-items">
+
+                          <a href="http://localhost:8080/message4">
+                              <span style="color: black" class="glyphicon glyphicon-"></span>
+                            </a>
+
+              </div>
+
+         </div>
+         </div><br><br><br>
+
+
+         <%path.forEach(function(img){%>
+
+            <p><span style="font-size: 17px;"><u>
+                <%= img.U_Name%></u></span> : <%= img.Messages%>
+            </p>
+         
+         <%})%>
+
+
+
+<%path1.forEach(function(abc){ %>
+
+
+          <div class= "bott">
+            <div class = "panel-footer">
+                <!-- <div class = "tabs footer-items"> -->
+                    <form method="post" action="/<%=abc.U_Name%>message4">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" name="message" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat" >
+                                Send</button>
+                        </span>
+                    <!-- </div> -->
+
+            </div>
+        </form>
+            </div>
+</div>   
+<%})%>      
+</body>

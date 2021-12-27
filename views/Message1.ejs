@@ -1,0 +1,131 @@
+<!DOCTYPE>
+<html>
+    <head>
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>
+            Message
+        </title>
+        
+        <link rel="stylesheet" type="text/css" href="message.css">
+
+    </head>
+    
+              <body class="allelements">
+           <div class = "wrapper">
+                         
+                   <div class = "flex-wrapper">
+                               <div class = "flex-wrapper-items">
+                                   <a href="http://localhost:8080/feed1">
+                                   <i class="fa fa-arrow-left"></i>
+                                </a>
+                               </div>
+
+                               <!-- <div class = "flex-wrapper-items">
+
+                                     <a href="http://localhost:8080/Account1">
+                                        <span style="color: black" class="glyphicon glyphicon-Search"></span>
+                                      </a> -->
+                                      <!-- <input style="width: 50%; " type="search" placeholder=" " name="search" />
+                                      <input type="submit" class="glyphicon glyphicon-Search" value="Search" >
+
+                        </div> --> 
+                        <div class = "flex-wrapper-items">Messenger</div>
+
+                               <div class = "flex-wrapper-items">
+
+                                    <a href="http://localhost:8080/message1">
+                                        <span style="color: black" class="glyphicon glyphicon-"></span>
+                                      </a>
+
+                        </div>
+
+                   </div>
+                   </div><br><br><br>
+                   <h2 align="center">
+                        <u>
+                            
+                        </u>
+                   </h2>
+                
+                   <%path.forEach(function(abc){%>
+
+                        <div class = "friend-stories">
+                            <div class = "friend-stories-wrapp">
+                                    
+
+                                    <img src = "<%= abc.P_pic%>" class = "photo-friend" width = "80px"  alt = "error"/> 
+                                    <a style="color: #333" href="http://localhost:8080/<%= abc.Friends_Name %>chat1">
+                                        <div  class = "this-photo-friend-text-name"><%= abc.Friends_Name %></div>
+                                    </a>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+                                        <div class = "this-photo-friend-text-name"></div>
+
+
+
+
+                                    </div>
+                                </div>
+                        </div>
+
+
+                        
+                    
+                        <%})%>
+                        
+                        <div class= "bott">
+                                <div class = "panel-footer">
+                                    <div class = "tabs footer-items">
+                                        <form action="http://localhost:8080/feed1">
+                                         <a href="http://localhost:8080/feed1">
+                                             <span style="color: black" class="glyphicon glyphicon-home"></span>
+                                           </a>
+                                    </form>
+                                     </div>
+                                     <div class = "flex-wrapper-items">
+             
+             
+                                         
+                                         <form action="http://localhost:8080/feed1">
+                                             <a href="#">
+                                                 <span style="color: black" class="glyphicon glyphicon-search"></span>
+                                               </a>
+                                        </form> 
+                                     </div>
+             
+                                     
+             
+                                     <div class = "flex-wrapper-items">
+                                    <!-- <i class="fa fa-user"></i> -->
+             
+                                    <a href="http://localhost:8080/Account1">
+                                     <span style="color: black" class="glyphicon glyphicon-user"></span>
+                                   </a>
+                 
+                                </div>
+
+  
+
+
+
+                               
+                            </body>
+                            </html>

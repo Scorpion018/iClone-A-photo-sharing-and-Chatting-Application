@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>   
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+        News Feed
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="Feed.css">
+
+
+    </head>
+    <body align="center" class="allelements">
+                    <div class = "wrapper">
+                          
+                          <div class = "flex-wrapper">
+                              <div class = "flex-wrapper-items">
+                                        <a href="http://localhost:8080/upl2">
+                                            <span style="color: black" class="glyphicon glyphicon-camera"></span>
+                                          </a>
+                              </div>
+                              <div class = "flex-wrapper-items">!-Clone</div>
+                                <div class = "flex-wrapper-items">
+
+                                        <a href="http://localhost:8080/message2">
+                                            <span style="color: black" class="glyphicon glyphicon-comment"></span>
+                                          </a>
+
+                            </div>
+
+                              </form>
+                          </div>
+                      </div>
+                    
+                      
+                      <div class = "sub-wrapper">
+                          
+                          <div class = "stories-flex">
+                              <div class  = "stories-flex-text">Friends</div>
+                              
+                          </div>
+                          
+                      </div>
+                      
+                      <div class = "friend-stories">
+                          <div class = "friend-stories-wrapp">
+                                <% path1.forEach(function(abc){%>
+                            
+                                    <div class = "photo-friend-text-name"> 
+                                    
+                                    <img src = "<%= abc.P_Pic %>" class = "photo-friend" width = "80px"  alt = "error"/> 
+                                    <a style="color: black;" href="http://localhost:8080/<%=abc.U_Name %>2">
+                                      <div class = "this-photo-friend-text-name"><%=abc.U_Name %></div>
+                                      </a>
+                                      
+                                  </div>
+                                  <%})%>
+                          </div>
+                      </div>
+        
+            </br>
+            -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+            <%path.forEach(function(img){%>
+                
+
+            <div class = "main">
+                    <div class = "for-main">
+                        
+                        <div class = "for-main-two">
+                        <img src = "<%= img.P_Pic%>" class = "logo-small" width = "50px" alt = "error"/>
+                        <a style="color: black;" href="http://localhost:8080/<%=img.U_Name %>2">
+                        <div class = "for-main-text s"><%= img.U_Name  %></div></a>
+                        <div class = "for-main-text s">---- <%= img.location  %></div>
+                        </div>
+                        
+                        
+                    </div>
+                   
+                   <div class = "after-main">
+                        <img src= '<%= img.photo_Name%>' height="100%" width="100%"></br>
+                        <div class = "likes">
+                                <div class = "sub-likes">
+                                    <i class="k fa fa-heart"></i>
+                                    <i class="l fa fa-comment"></i><a href="http://localhost:8080/<%= img.photo_Name%>">
+                                        <span style="color: black; font-size : 25px;" class="glyphicon glyphicon-share"></span>
+                                          </a>
+                                    <!-- <i class="l fa fa-share"></i> -->
+                                    </div>
+                       </div>
+                       <div class = "watch" align="left">Likes:<%= img.likes  %> </div>
+                       <div class = "sub-main" align="left"> <span class = "black-sub-main"><%=  img.U_Name  %> : </span><%=  img.caption  %> </div>
+                       <div class = "timing" align="left"> <span class = "time-this"></span> <%=  img.date_Of_Cre  %></div>
+                       
+                       <div class = "sub-main" align="left"> <span class = "black-sub-main"><%=  img.C_Name  %> : </span><%=  img.comment  %> </div>
+
+                   </div> 
+                   </div>
+                   -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+                   <%})%>
+                   <div class= "bott">
+                   <div class = "panel-footer">
+                       <div class = "tabs footer-items">
+                            <a href="http://localhost:8080/feed2">
+                                <span style="color: black" class="glyphicon glyphicon-home"></span>
+                              </a>
+                        </div>
+                        <div class = "flex-wrapper-items">
+
+
+                            <!-- <input type="text" placeholder="Search by User_Name" name="search"> -->
+                            <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+                                <a href="http://localhost:8080/search2">
+                                    <span style="color: black" class="glyphicon glyphicon-search"></span>
+                                  </a>
+                        </div>
+
+                              
+
+
+
+                        <div class = "flex-wrapper-items">
+                       <!-- <i class="fa fa-user"></i> -->
+
+                       <a href="http://localhost:8080/Account2">
+                        <span style="color: black" class="glyphicon glyphicon-user"></span>
+                      </a>
+    
+                   </div>
+                   </div>
+
+    </body>
+    <script>
+     window.onload = function() {
+    var i;
+    var like = document.getElementsByClassName("k");
+    var foot = document.getElementsByClassName("footer-items");
+    
+    for (i = 0; i < like.length; i++) {
+        like[i].addEventListener("click", function() {
+            this.classList.toggle("red");
+        });
+    }
+    
+    
+}
+    
+
+
+    </script>
+    </script>
+</html>
