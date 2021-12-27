@@ -1,0 +1,75 @@
+.allelements{
+    position: center;
+    margin: auto;
+  width: 50%;
+  padding: 10px;
+  border: solid black;
+  }
+  .wrapper {
+                
+                width: 100%;
+            align-content: center
+        }
+
+    .flex-wrapper {
+                
+                -webkit-justify-content: space-between;
+                    -moz-justify-content: space-between;
+                        -ms-justify-content: space-between;
+                            -o-justify-content: space-between;
+                                justify-content: space-between;
+                                    -webkit-align-items: center;
+                                        -moz-align-items: center;
+                                    -ms-align-items: center;
+                                -o-align-items: center;
+                            align-items: center;
+                        background-color: #f2f2f2;
+                    box-shadow: 0 1px 4px grey;
+                align-content: center
+    }
+
+  .panel-footer {
+                  display: -webkit-flex;
+                  display: -moz-flex;
+                  display: -ms-flex;
+                  display: -o-flex;
+                  display: flex;
+                  -webkit-justify-content: space-around;
+                  justify-content: space-around;                  
+                  background-color: #f2f2f2;
+                  z-index: 10;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  width: 100%;
+                  box-shadow: 0 -1px 4px grey;
+              }
+              
+              
+              
+              .panel-footer > .footer-items {
+                  font-size: 28px;
+                  cursor: pointer;
+              }
+              
+              .footer-items.tabs {
+                  opacity: 1;
+                  font-size: 250%;
+              }
+              
+              .footer-items {
+                  opacity: 0.5;
+                  font-size: 250%;
+              }
+
+    #frame {
+    box-align: center;
+    right: 28%;
+    left: 25%;
+	height:400px;
+	width: 905px;
+	border:solid black;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}

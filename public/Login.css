@@ -1,0 +1,126 @@
+body {
+    margin:0;
+    padding:0;
+    font-family:Montserrat;
+    /* background-color: #ffdd7f; */
+    color: white;
+  }
+  
+  .body-image {
+    background:url("/I-Clone.png") no-repeat center;
+    background-size:cover;
+    height:100vh;
+    /* opacity:0.8; */
+  }
+  
+  .box {
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform:translate(-50%, -50%);
+    width:370px;
+    height:440px;
+    background:#222;
+    opacity:0.4;
+    border: solid white;
+    background-color: transparent;
+  }
+  
+  .input-fields {
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    position:absolute;
+  }
+  
+  .input-fields input[type="text"], .input-fields input[type="password"] {
+    border:2px solid #2196f3;
+    border-radius:40px;
+    display:block;
+    padding:8px;
+    text-align:center;
+    color:white;
+    transition:440ms;
+    background:none;
+    outline:none;
+    margin:30px auto;
+    width:200px;
+  }
+  
+  .input-fields input[type="button"] {
+    cursor:pointer;
+    background:none;
+    border-radius:40px;
+    border:2px solid #2196f3;
+    outline:none;
+    padding:6px;
+    width:100px;
+    margin:10px auto;
+    color:white;
+    transition:440ms;
+    text-transform:uppercase;
+    font-weight:bold;
+    
+    display:block;
+  }
+  
+  .input-fields input[type="button"]:hover {
+    background:#2196f3;
+    width:120px;
+  }
+  
+  .input-fields input[type="text"]:focus, .input-fields input[type="password"]:focus {
+    border:2px solid #e74c3c;
+    width:170px;
+  }
+  
+  .profile-text h1 {
+    color:white;
+    top:46%;
+    left:50%;
+    transform:translate(-50%, -540%);
+    position:absolute;
+    text-transform:uppercase;
+    font-size:17px;
+    text-align:center;
+    border-bottom:2px solid #2196f3;
+  }
+  
+  .profile-text img {
+    width:200px;
+    border-radius:50%;
+    height:140px;
+    /* opacity:0.8; */
+    position:absolute;
+    top:47%;
+    left:50%;
+    transform:translate(-50%, -190%);
+  }
+  
+  .profile-text h4 {
+  
+    color:white;
+    /* top:50%; */
+    /* left:50%; */
+    top: 5%;
+    right: 25%;
+    left: 25%;
+    /* transform:translate(-50%, 990%); */
+    position:absolute;
+    text-transform:uppercase;
+    font-size:40px;
+  }
+  
+  .profile-text h3 {
+    color:white;
+    bottom:0%;
+    left:45%;
+    /* transform:translate(-50%, 1290%); */
+    position:absolute;
+    width:140px;
+    text-align:center;
+    border-bottom:2px solid #2196f3;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-size:12px;
+  }

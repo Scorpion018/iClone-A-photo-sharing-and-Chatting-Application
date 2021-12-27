@@ -1,0 +1,85 @@
+.allelements{
+    
+    position: center;
+    margin: auto;
+  width: 50%;
+  padding: 10px;
+  border: solid black;
+  bottom: 10%;
+  }
+.wrapper {
+        top: 0;
+        width: 50%;
+        right: 23%;
+        left: 25%;
+        align-content: center;
+        z-index: 10;
+        position: fixed;
+        background-color:#f2f2f2;
+        }
+
+    .flex-wrapper {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -moz-justify-content: space-between;
+        -ms-justify-content: space-between;
+        -o-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        align-items: center;
+        background-color: rgb(240, 239, 239);
+        box-shadow: 0 1px 4px rgb(90, 56, 56);
+    }
+
+    .flex-wrapper-items {
+                font-size: 27px!important;
+                cursor: pointer;
+                margin: 10px 15px;
+            }
+
+    .flex-wrapper > 
+            .flex-wrapper-items:nth-child(2) {
+                    font-family: 'Lobster', cursive;
+                    }
+                    
+                    
+                    .panel-footer {
+                        /* display: -webkit-flex;
+                        display: -moz-flex;
+                        display: -ms-flex;
+                        display: -o-flex;
+                        display: flex;
+                        -webkit-justify-content: space-around;
+                        justify-content: space-around;                  
+                        background-color: #f2f2f2; */
+                        z-index: 10;
+                        bottom: 20%;
+                        left: 0;
+                        right: 0;
+                        width: 100%;
+                        box-shadow: 0 -1px 4px grey;
+                    }
+                    
+                  
+                    .bott {
+                      overflow: hidden;
+                      color: gray;
+                          background-color: #333;
+                          position: fixed;
+                          bottom: 0;
+                             /* right: 23.5%; */
+                         left: 25.25%;
+                     width: 49.5%;
+                     height: 60px;
+                     size: 50%;
+                          position: fixed;
+                  }
+                    
+                    
