@@ -1,0 +1,1048 @@
+cd Last login: Mon Sep 30 00:42:00 on console
+Vishu-M-Gowda:~ vishugowda$ cd desktop;
+Vishu-M-Gowda:desktop vishugowda$ cd ..
+Vishu-M-Gowda:~ vishugowda$ mysql -u root -p;
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 20
+Server version: 5.7.25 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use image;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> Select * from pictures_1;
++------+--------+--------------+
+| slno | user   | image        |
++------+--------+--------------+
+|    1 | lekhu  | /favicon.ico |
+|    2 | vishu  | /post.JPG    |
+|    3 | lekhu  | aaa.JPG      |
+|    6 | nandan | test.JPG     |
+|    7 | vishu  | human.JPG    |
+|   10 | lekhu  | aaaaa.JPG    |
+|   11 | vishu  | me.JPG       |
+|   12 | vishu  | qwerty.JPG   |
+|   13 | lekhu  | llll.JPG     |
++------+--------+--------------+
+9 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE ICLONE;
+ERROR 1007 (HY000): Can't create database 'ICLONE'; database exists
+mysql> USE ICLONE;
+Database changed
+mysql> SHOW TABLES;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE User_Details(U_Id integer not null primary key unique, U_Name Varchar(20),F_Name varchar(20),L_Name Varchar(20),Email_Id varchar(30),Gender char,P_pic blob,D_O_B date, D_O_Creation date);
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> CREATE TABLE Login(U_Id varchar(20),Pass varchar(20),foreign key(U_Id) references User_Details(U_Id));                                                   ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> CREATE TABLE Login(U_Id varchar(20),Pass varchar(20),foreign key(U_Id) references User_Details(U_Id));
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> desc U
+UCASE               UNION               UPDATE              USING              
+UNCOMMITTED         UNIQUE              UPGRADE             UTC_DATE           
+UNCOMPRESS          UNIQUE_USERS        UPPER               UTC_TIME           
+UNCOMPRESSED_LENGTH UNIX_TIMESTAMP      USAGE               UTC_TIMESTAMP      
+UNDEFINED           UNKNOWN             USE                 UUID               
+UNDO                UNLOCK              USE_FRM            
+UNHEX               UNSIGNED            USER               
+UNICODE             UNTIL               USER_RESOURCES     
+mysql> desc U
+UCASE               UNION               UPDATE              USING              
+UNCOMMITTED         UNIQUE              UPGRADE             UTC_DATE           
+UNCOMPRESS          UNIQUE_USERS        UPPER               UTC_TIME           
+UNCOMPRESSED_LENGTH UNIX_TIMESTAMP      USAGE               UTC_TIMESTAMP      
+UNDEFINED           UNKNOWN             USE                 UUID               
+UNDO                UNLOCK              USE_FRM            
+UNHEX               UNSIGNED            USER               
+UNICODE             UNTIL               USER_RESOURCES     
+mysql> desc User_Details;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| U_Id         | int(11)     | NO   | PRI | NULL    |       |
+| U_Name       | varchar(20) | YES  |     | NULL    |       |
+| F_Name       | varchar(20) | YES  |     | NULL    |       |
+| L_Name       | varchar(20) | YES  |     | NULL    |       |
+| Email_Id     | varchar(30) | YES  |     | NULL    |       |
+| Gender       | char(1)     | YES  |     | NULL    |       |
+| P_pic        | blob        | YES  |     | NULL    |       |
+| D_O_B        | date        | YES  |     | NULL    |       |
+| D_O_Creation | date        | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+9 rows in set (0.15 sec)
+
+mysql> CREATE TABLE Login(U_Id int,Pass varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> create table Photos(photo_id int primary key not null,U_Id int,Caption text,Location varchar(30),Photo_Name varchar(20),foreign key(U_Id) references User_Detailsmysql> create table Phothar(30),Photo_Name varchar(20),foreign key(U_Id) references Use)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Use)' at line 1
+mysql> create table Photos(photo_id int primary key not null,U_Id int,Caption text,Location varchar(30),Photo_Name varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc Login;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| U_Id  | int(11)     | YES  | MUL | NULL    |       |
+| Pass  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc Photos;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| photo_id   | int(11)     | NO   | PRI | NULL    |       |
+| U_Id       | int(11)     | YES  | MUL | NULL    |       |
+| Caption    | text        | YES  |     | NULL    |       |
+| Location   | varchar(30) | YES  |     | NULL    |       |
+| Photo_Name | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> Create Table Followers(U_Id int,User_Name varchar(20),Follower_Id int primary key,Follower_Name varchar(20),foreign key(U_Id,User_Name) references User_Details(U_Id,User_Name));
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> Create Table Followers(U_Id int,U_Name varchar(20),Follower_Id int primary key,Follower_Name varchar(20),foreign key(U_Id,U_Name) references User_Details(U_Id,U_Name));
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> Create Table Followers(U_Id int,Follower_Id int primary key,Follower_Name varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> Create Table Following(U_Id int,Following_Id int primary key,Following_Name varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> create table Likes(U_Id int,photo_id int,Likes int, foreign key(U_Id) references User_Details(U_Id), foreign key(photo_id) references Photos(photo_id));
+Query OK, 0 rows affected (0.32 sec)
+
+mysql> desc followers;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| U_Id          | int(11)     | YES  | MUL | NULL    |       |
+| Follower_Id   | int(11)     | NO   | PRI | NULL    |       |
+| Follower_Name | varchar(20) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc following;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| U_Id           | int(11)     | YES  | MUL | NULL    |       |
+| Following_Id   | int(11)     | NO   | PRI | NULL    |       |
+| Following_Name | varchar(20) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc likes;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| U_Id     | int(11) | YES  | MUL | NULL    |       |
+| photo_id | int(11) | YES  | MUL | NULL    |       |
+| Likes    | int(11) | YES  |     | NULL    |       |
++----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_iclone |
++------------------+
+| Followers        |
+| Following        |
+| Likes            |
+| Login            |
+| Photos           |
+| User_Details     |
++------------------+
+6 rows in set (0.01 sec)
+
+mysql> create table Comment(U_Id int, photo_id int , comment text,Time time);
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_iclone |
++------------------+
+| Comment          |
+| Followers        |
+| Following        |
+| Likes            |
+| Login            |
+| Photos           |
+| User_Details     |
++------------------+
+7 rows in set (0.00 sec)
+
+mysql> desc user_details;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| U_Id         | int(11)     | NO   | PRI | NULL    |       |
+| U_Name       | varchar(20) | YES  |     | NULL    |       |
+| F_Name       | varchar(20) | YES  |     | NULL    |       |
+| L_Name       | varchar(20) | YES  |     | NULL    |       |
+| Email_Id     | varchar(30) | YES  |     | NULL    |       |
+| Gender       | char(1)     | YES  |     | NULL    |       |
+| P_pic        | blob        | YES  |     | NULL    |       |
+| D_O_B        | date        | YES  |     | NULL    |       |
+| D_O_Creation | date        | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> insert into user_details values(1001,scorpion_018,Vishu,M Gowda,vishugowda2017@gmail.com,M,/vishu1.jpg,03-09-1999,30-09-2019);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gowda,vishugowda2017@gmail.com,M,/vishu1.jpg,03-09-1999,30-09-2019)' at line 1
+mysql> insert into user_details values(1001,scorpion_018,Vishu,MGowda,vishugowda2017@gmail.com,M,/vishu1.jpg,03-09-1999,30-09-2019);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com,M,/vishu1.jpg,03-09-1999,30-09-2019)' at line 1
+mysql> insert into user_details values(1001,scorpion_018,Vishu,MGowda,vishugowda2017gmail.com,M,/vishu1.jpg,03-09-1999,30-09-2019);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/vishu1.jpg,03-09-1999,30-09-2019)' at line 1
+mysql> insert into user_details values(1001,'scorpion_018','Vishu','M Gowda','vishugowda2017@gmail.com','M','/vishu1.jpg',03-09-1999,30-09-2019);
+ERROR 1292 (22007): Incorrect date value: '-2005' for column 'D_O_B' at row 1
+mysql> select * from user_details;
+Empty set (0.00 sec)
+
+mysql> insert into user_details values(1001,'scorpion_018','Vishu','M Gowda','vishugowda2017@gmail.com','M','/vishu1.jpg','03-09-1999','30-09-2019');
+ERROR 1292 (22007): Incorrect date value: '03-09-1999' for column 'D_O_B' at row 1
+mysql> insert into user_details values(1001,'scorpion_018','Vishu','M Gowda','vishugowda2017@gmail.com','M','/vishu1.jpg',1999-09-03,1999-09-30);
+ERROR 1292 (22007): Incorrect date value: '1987' for column 'D_O_B' at row 1
+mysql> insert into user_details values(1001,'scorpion_018','Vishu','M Gowda','vishugowda2017@gmail.com','M','/vishu1.jpg',1999-09-03,2019-09-30);
+ERROR 1292 (22007): Incorrect date value: '1987' for column 'D_O_B' at row 1
+mysql> insert into user_details values(1001,'scorpion_018','Vishu','M Gowda','vishugowda2017@gmail.com','M','/vishu1.jpg','1999-09-03','2019-09-30');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from user_details;                                                +------+--------------+--------+---------+--------------------------+--------+-------------+------------+--------------+
+| U_Id | U_Name       | F_Name | L_Name  | Email_Id                 | Gender | P_pic       | D_O_B      | D_O_Creation |
++------+--------------+--------+---------+--------------------------+--------+-------------+------------+--------------+
+| 1001 | scorpion_018 | Vishu  | M Gowda | vishugowda2017@gmail.com | M      | /vishu1.jpg | 1999-09-03 | 2019-09-30   |
++------+--------------+--------+---------+--------------------------+--------+-------------+------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> insert into user_details values(1002,'mini_me_011','Lekhana','D','lekhanad1999@gmail.com','F','/Lekhu1.jpg','1999-06-11','2019-09-30');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into user_details values(1003,'vandana_s_bhat','Vandana','S Bhat','vandanabhat12@gmail.com','F','/Vandu1.jpg','1999-06-19','2019-09-30');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into user_details values(1003,'ranjith_gowda','Ranjith','Gowda','ranjith00@gmail.com','M','/Ranju1.jpg','1999-03-6','2019-09-30');
+ERROR 1062 (23000): Duplicate entry '1003' for key 'PRIMARY'
+mysql> insert into user_details values(1004,'ranjith_gowda','Ranjith','Gowda','ranjith00@gmail.com','M','/Ranju1.jpg','1999-03-6','2019-09-30');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from user_details;
++------+----------------+---------+---------+--------------------------+--------+-------------+------------+--------------+
+| U_Id | U_Name         | F_Name  | L_Name  | Email_Id                 | Gender | P_pic       | D_O_B      | D_O_Creation |
++------+----------------+---------+---------+--------------------------+--------+-------------+------------+--------------+
+| 1001 | scorpion_018   | Vishu   | M Gowda | vishugowda2017@gmail.com | M      | /vishu1.jpg | 1999-09-03 | 2019-09-30   |
+| 1002 | mini_me_011    | Lekhana | D       | lekhanad1999@gmail.com   | F      | /Lekhu1.jpg | 1999-06-11 | 2019-09-30   |
+| 1003 | vandana_s_bhat | Vandana | S Bhat  | vandanabhat12@gmail.com  | F      | /Vandu1.jpg | 1999-06-19 | 2019-09-30   |
+| 1004 | ranjith_gowda  | Ranjith | Gowda   | ranjith00@gmail.com      | M      | /Ranju1.jpg | 1999-03-06 | 2019-09-30   |
++------+----------------+---------+---------+--------------------------+--------+-------------+------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_iclone |
++------------------+
+| Comment          |
+| Followers        |
+| Following        |
+| Likes            |
+| Login            |
+| Photos           |
+| User_Details     |
++------------------+
+7 rows in set (0.00 sec)
+
+mysql> desc photos;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| photo_id   | int(11)     | NO   | PRI | NULL    |       |
+| U_Id       | int(11)     | YES  | MUL | NULL    |       |
+| Caption    | text        | YES  |     | NULL    |       |
+| Location   | varchar(30) | YES  |     | NULL    |       |
+| Photo_Name | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> drop table comment;
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> drop table followers;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> drop table following;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> drop table likes;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> drop table login;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> drop table photos;
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> create table Photos(photo_id int primary key not null auto_increment,U_Id int,Caption text,Location varchar(30),Photo_Name varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.40 sec)
+
+mysql> Create Table Followers(U_Id int,User_Name varchar(20),Follower_Id int primary key,Follower_Name varchar(20),foreign key(U_Id,User_Name) references User_Details(U_Id,User_Name));
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> Create Table Followers(U_Id int,Follower_Id int primary key,Follower_Name varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> Create Table Following(U_Id int,Following_Id int primary key,Following_Name varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> create table Likes(U_Id int,photo_id int,Likes int, foreign key(U_Id) references User_Details(U_Id), foreign key(photo_id) references Photos(photo_id));
+Query OK, 0 rows affected (0.39 sec)
+
+mysql> create table Comment(U_Id int, photo_id int , comment text,Time time);
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_iclone |
++------------------+
+| Comment          |
+| Followers        |
+| Following        |
+| Likes            |
+| Photos           |
+| User_Details     |
++------------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE Login(U_Id int,Pass varchar(20),foreign key(U_Id) references User_Details(U_Id));
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_iclone |
++------------------+
+| Comment          |
+| Followers        |
+| Following        |
+| Likes            |
+| Login            |
+| Photos           |
+| User_Details     |
++------------------+
+7 rows in set (0.00 sec)
+
+mysql> desc login;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| U_Id  | int(11)     | YES  | MUL | NULL    |       |
+| Pass  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into login values(1001,vishu@1234);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@1234)' at line 1
+mysql> insert into login values(1001,'vishu@1234');
+Query OK, 1 row affected (0.26 sec)
+
+mysql> insert into login values(1002,'lekhu@011');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into login values(1003,'vandu@019');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into login values(1004,'ranju@006');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Login;
++------+------------+
+| U_Id | Pass       |
++------+------------+
+| 1001 | vishu@1234 |
+| 1002 | lekhu@011  |
+| 1003 | vandu@019  |
+| 1004 | ranju@006  |
++------+------------+
+4 rows in set (0.01 sec)
+
+mysql> desc photos;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| photo_id   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| U_Id       | int(11)     | YES  | MUL | NULL    |                |
+| Caption    | text        | YES  |     | NULL    |                |
+| Location   | varchar(30) | YES  |     | NULL    |                |
+| Photo_Name | varchar(20) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into photos values(101,1001,'I'm God.God is GREAT','Cubbon Park','photo1.JPG');
+    '> ;
+    '> ^C
+mysql> insert into photos values(101,1001,'I'm God.God is GREAT','Cubbon Park','photo1.JPG');
+    '> ^C
+mysql> insert into photos values(101,1001,'Im God.God is GREAT','Cubbon Park','photo1.JPG');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into photos values(102,1002,'Mot...Mot....MOTIIIIIIIIIII','GSKSJTI','photo1.JPG');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> DELETE FROM PHOTOS WHERE PHOTO_ID = 102;
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from PHOTOS;
++----------+------+---------------------+-------------+------------+
+| photo_id | U_Id | Caption             | Location    | Photo_Name |
++----------+------+---------------------+-------------+------------+
+|      101 | 1001 | Im God.God is GREAT | Cubbon Park | photo1.JPG |
++----------+------+---------------------+-------------+------------+
+1 row in set (0.01 sec)
+
+mysql> insert into photos values(102,1002,'Mot...Mot....MOTIIIIIIIIIII','GSKSJTI','photo2.JPG');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into photos values(103,1003,'Im not born, Im made','Mangalore','photo3.JPG');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into photos values(104,1004,'Born to Ride','Bangalore','photo4.JPG');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from PHOTOS;
++----------+------+-----------------------------+-------------+------------+
+| photo_id | U_Id | Caption                     | Location    | Photo_Name |
++----------+------+-----------------------------+-------------+------------+
+|      101 | 1001 | Im God.God is GREAT         | Cubbon Park | photo1.JPG |
+|      102 | 1002 | Mot...Mot....MOTIIIIIIIIIII | GSKSJTI     | photo2.JPG |
+|      103 | 1003 | Im not born, Im made        | Mangalore   | photo3.JPG |
+|      104 | 1004 | Born to Ride                | Bangalore   | photo4.JPG |
++----------+------+-----------------------------+-------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> desc followers;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| U_Id          | int(11)     | YES  | MUL | NULL    |       |
+| Follower_Id   | int(11)     | NO   | PRI | NULL    |       |
+| Follower_Name | varchar(20) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into followers values(1001,1,'mini_me_011');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1001,2,'vandana_s_bhat');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1001,3,'ranjith_gowda');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1002,4,'ranjith_gowda');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into followers values(1002,5,'vandana_s_bhat');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1002,6,'scorpion_018');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into followers values(1003,7,'scorpion_018');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1003,8,'ranjith_gowda');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1003,9,'mini_me_011');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1004,10,'mini_me_011');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into followers values(1006,10,'mini_me_011');
+ERROR 1062 (23000): Duplicate entry '10' for key 'PRIMARY'
+mysql> insert into followers values(1004,11,'scorpion_018');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into followers values(1004,12,'vandana_s_bhat');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from followers;
++------+-------------+----------------+
+| U_Id | Follower_Id | Follower_Name  |
++------+-------------+----------------+
+| 1001 |           1 | mini_me_011    |
+| 1001 |           2 | vandana_s_bhat |
+| 1001 |           3 | ranjith_gowda  |
+| 1002 |           4 | ranjith_gowda  |
+| 1002 |           5 | vandana_s_bhat |
+| 1002 |           6 | scorpion_018   |
+| 1003 |           7 | scorpion_018   |
+| 1003 |           8 | ranjith_gowda  |
+| 1003 |           9 | mini_me_011    |
+| 1004 |          10 | mini_me_011    |
+| 1004 |          11 | scorpion_018   |
+| 1004 |          12 | vandana_s_bhat |
++------+-------------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from Followers where U_id = 1001;
++------+-------------+----------------+
+| U_Id | Follower_Id | Follower_Name  |
++------+-------------+----------------+
+| 1001 |           1 | mini_me_011    |
+| 1001 |           2 | vandana_s_bhat |
+| 1001 |           3 | ranjith_gowda  |
++------+-------------+----------------+
+3 rows in set (0.07 sec)
+
+mysql> select * from Followers where U_id = 1002;
++------+-------------+----------------+
+| U_Id | Follower_Id | Follower_Name  |
++------+-------------+----------------+
+| 1002 |           4 | ranjith_gowda  |
+| 1002 |           5 | vandana_s_bhat |
+| 1002 |           6 | scorpion_018   |
++------+-------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Followers where U_id = 1003;
++------+-------------+---------------+
+| U_Id | Follower_Id | Follower_Name |
++------+-------------+---------------+
+| 1003 |           7 | scorpion_018  |
+| 1003 |           8 | ranjith_gowda |
+| 1003 |           9 | mini_me_011   |
++------+-------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Followers where U_id = 1004;
++------+-------------+----------------+
+| U_Id | Follower_Id | Follower_Name  |
++------+-------------+----------------+
+| 1004 |          10 | mini_me_011    |
+| 1004 |          11 | scorpion_018   |
+| 1004 |          12 | vandana_s_bhat |
++------+-------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc following;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| U_Id           | int(11)     | YES  | MUL | NULL    |       |
+| Following_Id   | int(11)     | NO   | PRI | NULL    |       |
+| Following_Name | varchar(20) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into following values(1001,1,'mini_me_011');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into following values(1001,2,'vandana_s_bhat');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into following values(1001,3,'ranjith_gowda');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from following;
++------+--------------+----------------+
+| U_Id | Following_Id | Following_Name |
++------+--------------+----------------+
+| 1001 |            1 | mini_me_011    |
+| 1001 |            2 | vandana_s_bhat |
+| 1001 |            3 | ranjith_gowda  |
++------+--------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into following values(1002,4,'ranjith_gowda');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into following values(1002,5,'vandana_s_bhat');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into following values(1002,6,'scorpion_018');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into following values(1003,7,'scorpion_018');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into following values(1003,8,'ranjith_gowda');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into following values(1003,9,'mini_me_011');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into following values(1004,10,'mini_me_011');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into following values(1004,11,'scorpion_018');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into following values(1004,12,'vandana_s_bhat');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from following;
++------+--------------+----------------+
+| U_Id | Following_Id | Following_Name |
++------+--------------+----------------+
+| 1001 |            1 | mini_me_011    |
+| 1001 |            2 | vandana_s_bhat |
+| 1001 |            3 | ranjith_gowda  |
+| 1002 |            4 | ranjith_gowda  |
+| 1002 |            5 | vandana_s_bhat |
+| 1002 |            6 | scorpion_018   |
+| 1003 |            7 | scorpion_018   |
+| 1003 |            8 | ranjith_gowda  |
+| 1003 |            9 | mini_me_011    |
+| 1004 |           10 | mini_me_011    |
+| 1004 |           11 | scorpion_018   |
+| 1004 |           12 | vandana_s_bhat |
++------+--------------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from following where U_Id = 1001;
++------+--------------+----------------+
+| U_Id | Following_Id | Following_Name |
++------+--------------+----------------+
+| 1001 |            1 | mini_me_011    |
+| 1001 |            2 | vandana_s_bhat |
+| 1001 |            3 | ranjith_gowda  |
++------+--------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from following where U_Id = 1002;
++------+--------------+----------------+
+| U_Id | Following_Id | Following_Name |
++------+--------------+----------------+
+| 1002 |            4 | ranjith_gowda  |
+| 1002 |            5 | vandana_s_bhat |
+| 1002 |            6 | scorpion_018   |
++------+--------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from following where U_Id = 1003;
++------+--------------+----------------+
+| U_Id | Following_Id | Following_Name |
++------+--------------+----------------+
+| 1003 |            7 | scorpion_018   |
+| 1003 |            8 | ranjith_gowda  |
+| 1003 |            9 | mini_me_011    |
++------+--------------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from following where U_Id = 1004;
++------+--------------+----------------+
+| U_Id | Following_Id | Following_Name |
++------+--------------+----------------+
+| 1004 |           10 | mini_me_011    |
+| 1004 |           11 | scorpion_018   |
+| 1004 |           12 | vandana_s_bhat |
++------+--------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc likes;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| U_Id     | int(11) | YES  | MUL | NULL    |       |
+| photo_id | int(11) | YES  | MUL | NULL    |       |
+| Likes    | int(11) | YES  |     | NULL    |       |
++----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from photos;
++----------+------+-----------------------------+-------------+------------+
+| photo_id | U_Id | Caption                     | Location    | Photo_Name |
++----------+------+-----------------------------+-------------+------------+
+|      101 | 1001 | Im God.God is GREAT         | Cubbon Park | photo1.JPG |
+|      102 | 1002 | Mot...Mot....MOTIIIIIIIIIII | GSKSJTI     | photo2.JPG |
+|      103 | 1003 | Im not born, Im made        | Mangalore   | photo3.JPG |
+|      104 | 1004 | Born to Ride                | Bangalore   | photo4.JPG |
++----------+------+-----------------------------+-------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into likes values(1001,101,2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into likes values(1002,102,3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into likes values(1003,103,2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into likes values(1004,104,1);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from likes;
++------+----------+-------+
+| U_Id | photo_id | Likes |
++------+----------+-------+
+| 1001 |      101 |     2 |
+| 1002 |      102 |     3 |
+| 1003 |      103 |     2 |
+| 1004 |      104 |     1 |
++------+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc comment;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| U_Id     | int(11) | YES  |     | NULL    |       |
+| photo_id | int(11) | YES  |     | NULL    |       |
+| comment  | text    | YES  |     | NULL    |       |
+| Time     | time    | YES  |     | NULL    |       |
++----------+---------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from photos;
++----------+------+-----------------------------+-------------+------------+
+| photo_id | U_Id | Caption                     | Location    | Photo_Name |
++----------+------+-----------------------------+-------------+------------+
+|      101 | 1001 | Im God.God is GREAT         | Cubbon Park | photo1.JPG |
+|      102 | 1002 | Mot...Mot....MOTIIIIIIIIIII | GSKSJTI     | photo2.JPG |
+|      103 | 1003 | Im not born, Im made        | Mangalore   | photo3.JPG |
+|      104 | 1004 | Born to Ride                | Bangalore   | photo4.JPG |
++----------+------+-----------------------------+-------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into comment values(1002,101,'Super...',2019-09-30 13:23:44)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '13:23:44)' at line 1
+mysql> use vishu;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_vishu |
++-----------------+
+| BOOK_AUTHORS    |
+| Book            |
+| Book_Copies     |
+| Book_Lending    |
+| LIBRARY_BRANCH  |
+| publisher       |
++-----------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from Book_Lending;
++---------+-----------+------------+------------+------------+
+| Book_Id | Branch_Id | Card_No    | Date_Out   | Due_Date   |
++---------+-----------+------------+------------+------------+
+|    1001 |       101 | 1SK17CS039 | 2018-09-03 | 2018-12-03 |
+|    1002 |       102 | 1SK17CS014 | 2018-03-05 | 2018-06-05 |
+|    1004 |       103 | 1SK17CS028 | 2018-04-12 | 2018-07-12 |
+|    1003 |       101 | 1SK17CS018 | 2018-05-12 | 2018-08-21 |
+|    1001 |       101 | 1SK17CS020 | 2018-08-02 | 2018-11-02 |
+|    1011 |       102 | 1SK17CS019 | 2018-11-01 | 2018-08-01 |
+|    1002 |       102 | 1SK17CS038 | 2019-06-01 | 2019-09-01 |
+|    1001 |       101 | 1SK17CS020 | 2019-12-31 | 2023-11-01 |
+|    1005 |       101 | 1SK17CS038 | 2018-11-02 | 2018-03-30 |
++---------+-----------+------------+------------+------------+
+9 rows in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| Employee_Details   |
+| ICLONE             |
+| Student_login      |
+| image              |
+| mysql              |
+| performance_schema |
+| python             |
+| sys                |
+| test               |
+| vishu              |
+| vishu1             |
++--------------------+
+12 rows in set (0.01 sec)
+
+mysql> use Student_login ;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tabels;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tabels' at line 1
+mysql> show tables;
++-------------------------+
+| Tables_in_student_login |
++-------------------------+
+| Student_Usn             |
+| Student_details         |
+| list                    |
+| login                   |
++-------------------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from login;
++------+------------------+------------+----------+----------+
+| slno | Name             | USN        | Login    | Logout   |
++------+------------------+------------+----------+----------+
+|    1 | Vishwas M Gowda  | RSK17CS039 | 11:36:17 | 14:17:55 |
+|    2 | Lekhana D        | RSK17CS014 | 11:36:21 | 14:17:59 |
+|    4 | Muniraju         | RSK17CS018 | 11:36:30 | 14:18:07 |
+|    3 | Shashank Yadav M | RSK17CS028 | 11:36:26 | 14:18:02 |
+|    5 | Nandan Kumar     | RSK17CS020 | 11:36:34 | 14:18:11 |
++------+------------------+------------+----------+----------+
+5 rows in set (0.08 sec)
+
+mysql> use iclone;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> insert into comment values(1002,101,'Super...', 13:23:44)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':23:44)' at line 1
+mysql> insert into comment values(1002,101,'Super...',' 13:23:44')
+    -> ;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into comment values(1003,101,'Nyc...','10:23:44');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from comment;
++------+----------+----------+----------+
+| U_Id | photo_id | comment  | Time     |
++------+----------+----------+----------+
+| 1002 |      101 | Super... | 13:23:44 |
+| 1003 |      101 | Nyc...   | 10:23:44 |
++------+----------+----------+----------+
+2 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_iclone |
++------------------+
+| Comment          |
+| Followers        |
+| Following        |
+| Likes            |
+| Login            |
+| Photos           |
+| User_Details     |
++------------------+
+7 rows in set (0.00 sec)
+
+mysql> desc photos;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| photo_id   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| U_Id       | int(11)     | YES  | MUL | NULL    |                |
+| Caption    | text        | YES  |     | NULL    |                |
+| Location   | varchar(30) | YES  |     | NULL    |                |
+| Photo_Name | varchar(20) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table photos add column Time ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table photos add column Time;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table photos add column Time time;
+Query OK, 0 rows affected (0.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from photos;
++----------+------+-----------------------------+-------------+------------+------+
+| photo_id | U_Id | Caption                     | Location    | Photo_Name | Time |
++----------+------+-----------------------------+-------------+------------+------+
+|      101 | 1001 | Im God.God is GREAT         | Cubbon Park | photo1.JPG | NULL |
+|      102 | 1002 | Mot...Mot....MOTIIIIIIIIIII | GSKSJTI     | photo2.JPG | NULL |
+|      103 | 1003 | Im not born, Im made        | Mangalore   | photo3.JPG | NULL |
+|      104 | 1004 | Born to Ride                | Bangalore   | photo4.JPG | NULL |
++----------+------+-----------------------------+-------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update photos set Time='10:20:44' where photo_id=101;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update photos set Time='09' where photo_id=102;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update photos set Time='09:13:34' where photo_id=102;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update photos set Time='08:13:34' where photo_id=103;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update photos set Time='11:15:24' where photo_id=104;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from photos;
++----------+------+-----------------------------+-------------+------------+----------+
+| photo_id | U_Id | Caption                     | Location    | Photo_Name | Time     |
++----------+------+-----------------------------+-------------+------------+----------+
+|      101 | 1001 | Im God.God is GREAT         | Cubbon Park | photo1.JPG | 10:20:44 |
+|      102 | 1002 | Mot...Mot....MOTIIIIIIIIIII | GSKSJTI     | photo2.JPG | 09:13:34 |
+|      103 | 1003 | Im not born, Im made        | Mangalore   | photo3.JPG | 08:13:34 |
+|      104 | 1004 | Born to Ride                | Bangalore   | photo4.JPG | 11:15:24 |
++----------+------+-----------------------------+-------------+------------+----------+
+4 rows in set (0.01 sec)
+
+mysql> alter table photos add column Date date;
+Query OK, 0 rows affected (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update photos set Time='2019-09-30' where photo_id=101;
+ERROR 1292 (22007): Incorrect time value: '2019-09-30' for column 'Time' at row 1
+mysql> update photos set date='2019-09-30' where photo_id=101;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update photos set date='2019-09-30' where photo_id=102;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update photos set date='2019-09-30' where photo_id=103;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update photos set date='2019-09-30' where photo_id=104;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from photos;
++----------+------+-----------------------------+-------------+------------+----------+------------+
+| photo_id | U_Id | Caption                     | Location    | Photo_Name | Time     | Date       |
++----------+------+-----------------------------+-------------+------------+----------+------------+
+|      101 | 1001 | Im God.God is GREAT         | Cubbon Park | photo1.JPG | 10:20:44 | 2019-09-30 |
+|      102 | 1002 | Mot...Mot....MOTIIIIIIIIIII | GSKSJTI     | photo2.JPG | 09:13:34 | 2019-09-30 |
+|      103 | 1003 | Im not born, Im made        | Mangalore   | photo3.JPG | 08:13:34 | 2019-09-30 |
+|      104 | 1004 | Born to Ride                | Bangalore   | photo4.JPG | 11:15:24 | 2019-09-30 |
++----------+------+-----------------------------+-------------+------------+----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_iclone |
++------------------+
+| Comment          |
+| Followers        |
+| Following        |
+| Likes            |
+| Login            |
+| User_Details     |
+| photos           |
++------------------+
+7 rows in set (0.03 sec)
+
+mysql> select * from User_Details;
++------+----------------+---------+---------+--------------------------+--------+-------------+------------+--------------+
+| U_Id | U_Name         | F_Name  | L_Name  | Email_Id                 | Gender | P_pic       | D_O_B      | D_O_Creation |
++------+----------------+---------+---------+--------------------------+--------+-------------+------------+--------------+
+| 1001 | scorpion_018   | Vishu   | M Gowda | vishugowda2017@gmail.com | M      | /vishu1.jpg | 1999-09-03 | 2019-09-30   |
+| 1002 | mini_me_011    | Lekhana | D       | lekhanad1999@gmail.com   | F      | /Lekhu1.jpg | 1999-06-11 | 2019-09-30   |
+| 1003 | vandana_s_bhat | Vandana | S Bhat  | vandanabhat12@gmail.com  | F      | /Vandu1.jpg | 1999-06-19 | 2019-09-30   |
+| 1004 | ranjith_gowda  | Ranjith | Gowda   | ranjith00@gmail.com      | M      | /Ranju1.jpg | 1999-03-06 | 2019-09-30   |
++------+----------------+---------+---------+--------------------------+--------+-------------+------------+--------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from login;
++------+------------+
+| U_Id | Pass       |
++------+------------+
+| 1001 | vishu@1234 |
+| 1002 | lekhu@011  |
+| 1003 | vandu@019  |
+| 1004 | ranju@006  |
++------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from photos;\;
++----------+------+-----------------------------+-------------+------------+----------+------------+
+| photo_id | U_Id | Caption                     | Location    | Photo_Name | Time     | Date       |
++----------+------+-----------------------------+-------------+------------+----------+------------+
+|      101 | 1001 | Im God.God is GREAT         | Cubbon Park | photo1.JPG | 10:20:44 | 2019-09-30 |
+|      102 | 1002 | Mot...Mot....MOTIIIIIIIIIII | GSKSJTI     | photo2.JPG | 09:13:34 | 2019-09-30 |
+|      103 | 1003 | Im not born, Im made        | Mangalore   | photo3.JPG | 08:13:34 | 2019-09-30 |
+|      104 | 1004 | Born to Ride                | Bangalore   | photo4.JPG | 11:15:24 | 2019-09-30 |
++----------+------+-----------------------------+-------------+------------+----------+------------+
+4 rows in set (0.00 sec)
+
+ERROR: 
+Unknown command '\;'.
+    -> ^C
+mysql> select * from likes;
++------+----------+-------+
+| U_Id | photo_id | Likes |
++------+----------+-------+
+| 1001 |      101 |     2 |
+| 1002 |      102 |     3 |
+| 1003 |      103 |     2 |
+| 1004 |      104 |     1 |
++------+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from followers;
++------+-------------+----------------+
+| U_Id | Follower_Id | Follower_Name  |
++------+-------------+----------------+
+| 1001 |           1 | mini_me_011    |
+| 1001 |           2 | vandana_s_bhat |
+| 1001 |           3 | ranjith_gowda  |
+| 1002 |           4 | ranjith_gowda  |
+| 1002 |           5 | vandana_s_bhat |
+| 1002 |           6 | scorpion_018   |
+| 1003 |           7 | scorpion_018   |
+| 1003 |           8 | ranjith_gowda  |
+| 1003 |           9 | mini_me_011    |
+| 1004 |          10 | mini_me_011    |
+| 1004 |          11 | scorpion_018   |
+| 1004 |          12 | vandana_s_bhat |
++------+-------------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from following;
++------+--------------+----------------+
+| U_Id | Following_Id | Following_Name |
++------+--------------+----------------+
+| 1001 |            1 | mini_me_011    |
+| 1001 |            2 | vandana_s_bhat |
+| 1001 |            3 | ranjith_gowda  |
+| 1002 |            4 | ranjith_gowda  |
+| 1002 |            5 | vandana_s_bhat |
+| 1002 |            6 | scorpion_018   |
+| 1003 |            7 | scorpion_018   |
+| 1003 |            8 | ranjith_gowda  |
+| 1003 |            9 | mini_me_011    |
+| 1004 |           10 | mini_me_011    |
+| 1004 |           11 | scorpion_018   |
+| 1004 |           12 | vandana_s_bhat |
++------+--------------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from comment;
++------+----------+----------+----------+
+| U_Id | photo_id | comment  | Time     |
++------+----------+----------+----------+
+| 1002 |      101 | Super... | 13:23:44 |
+| 1003 |      101 | Nyc...   | 10:23:44 |
++------+----------+----------+----------+
+2 rows in set (0.01 sec)
+
+mysql> 

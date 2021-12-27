@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport"  initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="upload.css">
+
+               </head>
+               <body align="center" class="allelements">
+                            <div>
+
+                                <div class = "wrapper">
+                          
+                                    <div class = "flex-wrapper" style="font-size: 200%">
+                                            <a style="color: black; position: absolute; left: 26%;" href="http://localhost:8080/feed4">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </a>
+                                        Upload the New Image
+                                         
+                                            </div>
+                                        </div>
+                                </div><br><br><br>
+                                          
+                                        <form ref='uploadForm' 
+                                        id='uploadForm' 
+                                        action='/upload4' 
+                                        method='post' 
+                                        encType="multipart/form-data">
+                                          <!-- <input type="file" name="sampleFile" /></br><br> -->
+                                          <input align="center" id='file' type='file' name="sampleFile"/>
+	                                        <div align="center" id='frame'>
+                                                </div><br><br>
+                                                
+                                                <div class="row">
+                                                  <!-- <form class="col s12"> -->
+                                                    <div class="row">
+                                                         <div class="input-field col s6">
+                                                              <span class="glyphicon glyphicon-picture"></span>
+                                                              <label for="icon_prefix">Photo Name :</label>
+                                                              <input id="icon_prefix" type="text" class="validate" name="photo_name">
+                                                           </div>
+                                                           <div>
+                                                                <i class="material-icons prefix">mode_edit</i>
+                                                                <label for="icon_prefix2">Caption :</label>
+                                                                <input id="icon_prefix" type="text" class="validate" name="caption">
+                                                            </div>
+                                                            <div class="input-field col s6">
+                                                                <span class="glyphicon glyphicon-map-marker"></span>
+                                                                <label for="icon_prefix">Location :</label>
+                                                               <input id="icon_prefix" type="text" class="validate" name="location">
+                                                           </div>
+                                                    </div>
+                                                 <!-- </form> -->
+                                                </div>
+
+                                          <input type='submit' value='Upload!' /></br></br>
+                  
+                                        </form>
+                            </div>
+                                        <div id = "bott">
+                                        <div class = "panel-footer">
+                                            <div class = "tabs footer-items">
+                                                   
+                                                        <a href="http://localhost:8080/feed4">
+                                                            <span style="color: black" class="glyphicon glyphicon-home"></span>
+                                                          </a>
+                                                   
+                                        </div>
+                                      </div>
+                                      </div>
+                                  
+
+               </body>
+               <script>
+               window.onload=function(){
+const frame = document.getElementById('frame');
+const file = document.getElementById('file');
+const reader = new FileReader();
+reader.addEventListener("load", function () {
+  frame.style.backgroundImage = `url(${ reader.result })`;
+}, false);
+file.addEventListener('change',function() {
+  const image = this.files[0];
+  if(image) reader.readAsDataURL(image);
+}, false)
+}
+               </script>
+</html> 
+ 

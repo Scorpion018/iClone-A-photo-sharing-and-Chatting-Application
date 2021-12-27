@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="Login.css">
+
+    <style type="text/css">
+      /* FONT AWESOME */
+@import "https://use.fontawesome.com/releases/v5.6.3/css/all.css";
+</style>
+  </head>
+    <body align="center">
+      <div class="body-image"></div>
+      <div class="box"></div>
+        <div class="profile-text">
+          <img src="/lekhu1.JPG" alt="">
+            <h1> User Login</h1><br>
+              <h4>!-CLONE</h4>
+              <h3>Photo sharing and Chatting Application</h3>
+            </div>
+                <div class="input-fields">
+              <input type="text" value="mini_me_011" placeholder="Username" name="username" id="username" required >
+            <input type="password" placeholder="Password" name="password" id="password" required/>
+          <input type="checkbox" id="box"  onclick="myFunction()"/>Show Password<br/>
+        <input type="button" value="Login" id="submit" onclick="validate()"/><br>
+      <input type="button" value="Switch-User" id="submit" onclick="switchuser()"/> 
+    </div>
+  </body>
+  <script type="text/javascript">
+  function myFunction() {
+    var x = 
+      document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } 
+        else{
+          x.type = "password";
+        }
+  }
+
+var attempt = 3;
+  var i; 
+    function validate(){
+      var name = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
+          var username = ["mini_me_011","1002","Lekhu"];
+            var password = "lekhu@011";
+              console.log(username,password);
+                for ( i =0; i < username.length; i++) {
+                  if ( name==username[i] && pass==password){
+                    window.location = "http://localhost:8080/feed2"; 
+                      return false;
+                    }
+                  }
+                  if(i==username.length){
+                attempt --;
+              alert("You have left "+attempt+" attempt;");
+            if( attempt == 0){
+          document.getElementById("username").disabled = true;
+        document.getElementById("password").disabled = true;
+      document.getElementById("box").disabled = true;
+    document.getElementById("submit").disabled = true;
+  return false;
+  }                  
+}}
+
+function switchuser(){
+    window.location = "http://localhost:8080/";
+} 
+</script>
+</html>
